@@ -37,3 +37,33 @@
 
 1. [先人の足跡](https://codesandbox.io/s/matter-js-forked-xohc25?file=/src/App.vue:64-69)のApp.vueをコピー  
 ※script setupを使う方法はいまいち分からない。
+
+1. script setupへの対応
+    1. script setupにし、App.vueのmounted内をonMountedに移動、onMountedをexport default外に移動
+        ```JavaScript:App.vue
+        - <script>
+        + <script setup>
+        ```
+        ```JavaScript:App.vue
+        - mounted() {
+        -     // いろいろ
+        - }
+        + onMounted(() => {
+        +     // いろいろ
+        + })
+        ```
+    1. export defaultを削除
+    1. templateのdivタグにrefを追加、"root"としておく
+        ```JavaScript:App.vue
+        - <div id="app"></div>
+        + <div id="app" ref="root"></div>
+        ```
+    1. scriptでrefオブジェクトとしてroot(refで定義した名前)を定義
+        ```JavaScript:App.vue
+        const root = ref(null)
+        ```
+    1. Render.create()の引数のオブジェクトでelementの値をroot.valueとする
+        ```JavaScript:App.vue
+        - element: this.$el,
+        + element: root.value,
+        ```
