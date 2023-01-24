@@ -1,0 +1,19 @@
+## Matter.js導入のためにやったこと
+1. Vueプロジェクトをinitしnpm installを実行
+
+2. npm install matter-jsを実行
+
+3. src/test.svgを作成、中身に何かを格納しておく
+
+4. Vue.config.productionTipをfalseに設定
+→ 必要なさそう(https://v3.ja.vuejs.org/guide/migration/global-api.html#config-productiontip-%E3%81%AE%E5%89%8A%E9%99%A4)
+
+5. main.jsで、hをimport, 以下を追加
+App.component('anchred-heading', {
+    render: h => h(app)
+})
+
+6. npm install pathsegを実行(SVGのなにかっぽい。わからん;;)
+
+7. https://codesandbox.io/s/matter-js-forked-xohc25?file=/src/App.vue:64-69 のApp.vueをコピー
+※script setupを使う方法はいまいち分からない。
