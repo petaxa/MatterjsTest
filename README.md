@@ -66,3 +66,29 @@
         - element: this.$el,
         + element: root.value,
         ```
+
+1. onMountedから出せるものは出す
+Matter用の変数とengine, runnerの作成は外に出してもちゃんと動いた
+```JavaScript:App.vue
+// これらは外に。
+// Matter
+const root = ref(null)
+const Engine = Matter.Engine
+const Render = Matter.Render
+const Runner = Matter.Runner
+const Common = Matter.Common
+const MouseConstraint = Matter.MouseConstraint
+const Mouse = Matter.Mouse
+const World = Matter.World
+const Vertices = Matter.Vertices
+const Svg = Matter.Svg
+const Bodies = Matter.Bodies
+const Composite = Matter.Composite
+// create engine
+const engine = Engine.create()
+const world = engine.world;
+// create runner
+const runner = Runner.create();
+```
+
+1. Composite.add(world, 追加するもの) でオブジェクトを追加できる
