@@ -36,7 +36,6 @@
   `All new development should use the SVG Path Data API.` ということではあるらしい。
 
 1. [先人の足跡](https://codesandbox.io/s/matter-js-forked-xohc25?file=/src/App.vue:64-69)のApp.vueをコピー  
-※script setupを使う方法はいまいち分からない。
 
 1. script setupへの対応
     1. script setupにし、App.vueのmounted内をonMountedに移動、onMountedをexport default外に移動
